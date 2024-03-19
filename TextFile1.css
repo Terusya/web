@@ -40,3 +40,14 @@
         input[type=submit]:active {
             background-color: #000;
         }
+        .input-error {
+            border-color: red;
+        }
+        .theme-button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            display: inline-block;
+            padding: 10px 25px;
+            cursor: pointer;
+         }

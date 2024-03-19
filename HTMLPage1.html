@@ -4,10 +4,12 @@
 <head>
     <meta charset="UTF-8" />
     <title>Title</title>
-    <link rel="stylesheet" href="TextFile1.css"
+    <link rel="stylesheet" href="TextFile1.css">
+    <link rel="stylesheet" href="TextFile1.css" id="theme-link">
 </head>
 <body>
     <div class="container">
+        <div class="theme-button" id="theme-button">Change theme</div>
         <h1>Registration form</h1>
         <form>
             <div class="form-input">
@@ -16,7 +18,7 @@
             </div>
             <div class="form-input">
                 <label for="password-input">Enter your password</label>
-                <input type="password" id="name-input" placeholder="Password" />
+                <input type="password" id="password-input" placeholder="Password" />
             </div>
             <div class="form-input">
                 <label for="user-type-input">Select user type</label>
@@ -27,8 +29,64 @@
                 </select>
             </div>
 
-            <input type="submit" value="Submit form"/>
+            <input type="submit" value="Submit form" />
         </form>
     </div>
+
+    <script type="text/javascript">
+        const nameInput = document.querySelector("#name-input");
+        let inputValue;
+
+        nameInput.addEventListener("input", () => {
+            inputValue = nameInput.value
+            console.log(inputValue);
+        })
+
+        nameInput.addEventListener("blur", () => {
+            if (!inputValue || inputValue.length < 4) {
+                nameInput.className = "input-error"
+            }
+            else {
+                nameInput.className = "form-input"
+            }
+        })
+    </script>
+
+    <script type="text/javascript">
+        const passwordInput = document.querySelector("#password-input");
+        let inputValue2;
+
+        passwordInput.addEventListener("input", () => {
+            inputValue2 = passwordInput.value
+            console.log(inputValue2);
+        })
+
+        passwordInput.addEventListener("blur", () => {
+            if (!inputValue2 || inputValue2.length < 4) {
+                passwordInput.className = "input-error"
+            }
+            else {
+                passwordInput.className = "form-input"
+            }
+        })
+    </script>
+
+    <script type="text/javascript">
+        let btn = document.getElementById("theme-button");
+        var link = document.getElementById("theme-link");
+
+        btn.addEventListener("click", () => {
+            var currTheme = link.getAttribute("href");
+            if (currTheme == "TextFile1.css") {
+                currTheme = "DarkTheme.css";
+            }
+            else {
+                currTheme = "TextFile1.css";
+            }
+            link.setAttribute("href", currTheme);
+        });
+
+    </script>
+
 </body>
 </html>
